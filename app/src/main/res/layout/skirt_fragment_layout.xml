@@ -1,0 +1,114 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="500dp"
+             tools:context="com.bignerdranch.android.beautytoday20.coatFragment"
+             android:background = "#C39BD3">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom = "20dp"
+            android:text = "please input the description for your skirt:"
+            />
+
+        <TextView
+            android:id="@+id/color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/color"/>
+
+        <EditText
+            android:id="@+id/colorField"
+            android:width="100px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/pattern"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/pattern"/>
+
+        <EditText
+            android:id="@+id/patternField"
+            android:width="100px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/material"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/material"/>
+
+        <EditText
+            android:id="@+id/materialField"
+            android:width="100px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+
+        <TextView
+            android:id="@+id/style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/style"
+            />
+
+        <EditText
+            android:id="@+id/styleField"
+            android:width="100px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <TextView
+            android:id="@+id/sleeves"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sleeves" />
+
+        <EditText
+            android:id="@+id/coatSleeves"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/sleeves_hint"/>
+
+        <TextView
+            android:id="@+id/length"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/length" />
+
+        <EditText
+            android:id="@+id/coatlength"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/length_hint"/>
+
+
+        <Button
+            android:id="@+id/confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/confirm"/>
+
+
+    </LinearLayout>
+
+
+</FrameLayout>
+
+

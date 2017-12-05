@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">BeautyToday</string>
+    <string name="Login">Login</string>
+    <string name="coat">Coat</string>
+    <string name="jean">Jean</string>
+    <string name="skirt">Skirt</string>
+    <string name="color">color</string>
+    <string name="color_hint">choose one or multiple colors</string>
+    <string name="material">Material</string>
+    <string name="material_hint">choose a material</string>
+    <string name="style">Style</string>
+    <string name="style_hint">choose a style</string>
+    <string name="pattern">Pattern</string>
+    <string name="pattern_hint">choose patterns</string>
+    <string name="sleeves">Sleeves</string>
+    <string name="sleeves_hint">chooose sleeves length</string>
+    <string name="length">Length</string>
+    <string name="length_hint">choose length</string>
+    <string name="confirm">Confirm</string>
+    <string name="back">Back</string>
+    <string name="ClothDetail">Cloth Detail</string>
+    <string name="dress">dress</string>
+    <string name="trousers">trousers</string>
+    <string name="boots">boots</string>
+    <string name="bag">bag</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
