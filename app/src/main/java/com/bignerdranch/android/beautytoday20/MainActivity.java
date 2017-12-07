@@ -20,14 +20,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mCoatButton = (Button)findViewById(R.id.coat);
+        mCoatButton = (Button) findViewById(R.id.coat);
         mCoatButton.setOnClickListener(new View.OnClickListener() {
             FragmentManager fragmentmanager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentmanager.beginTransaction();
+
             @Override
             public void onClick(View v) {
                 coatFragment coat1 = new coatFragment();
-                fragmentTransaction.add(R.id.fragment_container,coat1);
+                fragmentTransaction.add(R.id.fragment_container, coat1);
                 fragmentTransaction.commit();
             }
         });
@@ -81,6 +82,5 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-
 
 }

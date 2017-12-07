@@ -5,7 +5,32 @@
              tools:context="com.bignerdranch.android.beautytoday20.coatFragment"
              android:background = "#F5CBA7">
 
-    <LinearLayout
+   <TableLayout
+       android:layout_width="fill_parent"
+       android:layout_height="fill_parent">
+
+       <TableRow >
+
+      <!-- <TextView
+           android:id="@+id/color"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/color"
+           android:textSize="16sp"/>-->
+
+       <Spinner
+           android:id="@+id/colorField"
+           android:layout_width="fill_parent"
+           android:layout_height="fill_parent"
+           android:hint = "color"/>
+           <!--android:layout_toRightOf = "@+id/color"
+           />-->
+
+       </TableRow>
+
+   </TableLayout>
+
+    <!--<RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingLeft="16dp"
@@ -13,6 +38,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="20dp"
@@ -22,26 +48,28 @@
             android:id="@+id/color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below = "@+id/title"
             android:text="@string/color"/>
 
         <EditText
             android:id="@+id/colorField"
-            android:width="100px"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_toRightOf = "@+id/color"
+            />-->
 
-        <TextView
+        <!--<TextView
             android:id="@+id/pattern"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
+            android:layout_below = "@+id/color"
             android:text="@string/pattern"/>
 
         <EditText
             android:id="@+id/patternField"
-            android:width="100px"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_toRightOf = "@+id/pattern"/>
 
         <TextView
             android:id="@+id/material"
@@ -105,9 +133,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/confirm"/>
+-->
 
-
-    </LinearLayout>
+   <!--</RelativeLayout>-->
 
 
 </FrameLayout>
