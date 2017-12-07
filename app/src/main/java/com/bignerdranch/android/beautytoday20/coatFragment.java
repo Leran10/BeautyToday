@@ -12,10 +12,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 import SQLite.DatabaseHelper;
+import helper.SpinnerAdapter;
+import model.ItemData;
 import model.coat;
 
 import static android.R.attr.duration;
@@ -58,6 +63,80 @@ public class coatFragment extends Fragment {
 
         View rootview =  inflater.inflate(R.layout.coat_fragment_layout, container, false);
 
+        ArrayList<ItemData> list = new ArrayList<>();
+        list.add(new ItemData("dark red",R.drawable.darkred));
+        list.add(new ItemData("dark teracotta",R.drawable.darkteracotta));
+        list.add(new ItemData("blood orange",R.drawable.bloodorange));
+        list.add(new ItemData("pink",R.drawable.pink));
+        list.add(new ItemData("blue",R.drawable.blue));
+        list.add(new ItemData("light blue",R.drawable.lightblue));
+        list.add(new ItemData("green",R.drawable.lightgreen));
+        list.add(new ItemData("light green",R.drawable.lightgreen));
+        list.add(new ItemData("black",R.drawable.black));
+        list.add(new ItemData("white",R.drawable.white));
+        list.add(new ItemData("gray",R.drawable.gray));
+        Spinner sp = (Spinner)rootview.findViewById(R.id.colorSpinner);
+        SpinnerAdapter adapter = new SpinnerAdapter(getActivity(),R.layout.spinner_layout, R.id.txt, list);
+        sp.setAdapter(adapter);
+
+        ArrayList<ItemData> list1 = new ArrayList<>();
+        list1.add(new ItemData("no pattern",R.drawable.white));
+        list1.add(new ItemData("small floral",R.drawable.smallfloral));
+        list1.add(new ItemData("big floral",R.drawable.bigfloral));
+        list1.add(new ItemData("circle",R.drawable.circle));
+        list1.add(new ItemData("checked",R.drawable.checked));
+        list1.add(new ItemData("carton",R.drawable.carton));
+        list1.add(new ItemData("abstract",R.drawable.abstract1));
+        list1.add(new ItemData("paint",R.drawable.paint));
+        Spinner sp1 = (Spinner)rootview.findViewById(R.id.patternSpinner);
+        SpinnerAdapter adapter1 = new SpinnerAdapter(getActivity(),R.layout.spinner_layout, R.id.txt, list1);
+        sp1.setAdapter(adapter1);
+
+        ArrayList<ItemData> list2 = new ArrayList<>();
+        list1.add(new ItemData("no pattern",R.drawable.white));
+        list1.add(new ItemData("small floral",R.drawable.smallfloral));
+        list1.add(new ItemData("big floral",R.drawable.bigfloral));
+        list1.add(new ItemData("circle",R.drawable.circle));
+        list1.add(new ItemData("checked",R.drawable.checked));
+        list1.add(new ItemData("carton",R.drawable.carton));
+        list1.add(new ItemData("abstract",R.drawable.abstract1));
+        list1.add(new ItemData("paint",R.drawable.paint));
+        Spinner sp2 = (Spinner)rootview.findViewById(R.id.patternSpinner);
+        SpinnerAdapter adapter2 = new SpinnerAdapter(getActivity(),R.layout.spinner_layout, R.id.txt, list2);
+        sp2.setAdapter(adapter2);
+
+        ArrayList<ItemData> list3 = new ArrayList<>();
+        list1.add(new ItemData("no pattern",R.drawable.white));
+        list1.add(new ItemData("small floral",R.drawable.smallfloral));
+        list1.add(new ItemData("big floral",R.drawable.bigfloral));
+        list1.add(new ItemData("circle",R.drawable.circle));
+        list1.add(new ItemData("checked",R.drawable.checked));
+        list1.add(new ItemData("carton",R.drawable.carton));
+        list1.add(new ItemData("abstract",R.drawable.abstract1));
+        list1.add(new ItemData("paint",R.drawable.paint));
+        Spinner sp3 = (Spinner)rootview.findViewById(R.id.materialSpinner);
+        SpinnerAdapter adapter3 = new SpinnerAdapter(getActivity(),R.layout.spinner_layout, R.id.txt, list3);
+        sp3.setAdapter(adapter3);
+
+        ArrayList<ItemData> list4 = new ArrayList<>();
+        list1.add(new ItemData("long sleeves",R.drawable.longsleeves));
+        list1.add(new ItemData("short sleeves",R.drawable.shortsleeves));
+        Spinner sp4 = (Spinner)rootview.findViewById(R.id.sleevesSpinner);
+        SpinnerAdapter adapter4 = new SpinnerAdapter(getActivity(),R.layout.spinner_layout, R.id.txt, list4);
+        sp4.setAdapter(adapter4);
+
+        ArrayList<ItemData> list5 = new ArrayList<>();
+        list1.add(new ItemData("no pattern",R.drawable.white));
+        list1.add(new ItemData("small floral",R.drawable.smallfloral));
+        list1.add(new ItemData("big floral",R.drawable.bigfloral));
+        list1.add(new ItemData("circle",R.drawable.circle));
+        list1.add(new ItemData("checked",R.drawable.checked));
+        list1.add(new ItemData("carton",R.drawable.carton));
+        list1.add(new ItemData("abstract",R.drawable.abstract1));
+        list1.add(new ItemData("paint",R.drawable.paint));
+        Spinner sp5 = (Spinner)rootview.findViewById(R.id.sleevesSpinner);
+        SpinnerAdapter adapter5 = new SpinnerAdapter(getActivity(),R.layout.spinner_layout, R.id.txt, list5);
+        sp5.setAdapter(adapter5);
 
         mButton = (Button)rootview.findViewById(R.id.confirm);
         mCoatColor = (EditText)rootview.findViewById(R.id.colorField);
