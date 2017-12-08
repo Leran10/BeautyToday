@@ -23,6 +23,7 @@
     <string name="trousers">trousers</string>
     <string name="boots">boots</string>
     <string name="bag">bag</string>
+    <string name="camera">camera</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
