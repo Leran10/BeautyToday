@@ -1,10 +1,10 @@
 package model;
 
 /**
- * Created by qingzhi on 12/7/2017.
+ * Created by qingzhi on 12/9/2017.
  */
 
-public class coat {
+public class dress {
 
     private int id;
     private String color;
@@ -72,3 +72,4 @@ public class coat {
     public byte[] getImage(){ return image;}
     public void setImage(byte[] image){this.image = image;}
 }
+

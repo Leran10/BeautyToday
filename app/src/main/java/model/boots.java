@@ -1,18 +1,17 @@
 package model;
 
 /**
- * Created by qingzhi on 12/7/2017.
+ * Created by qingzhi on 12/9/2017.
  */
 
-public class coat {
+public class boots {
 
     private int id;
     private String color;
     private String pattern;
     private String material;
     private String style;
-    private String sleeves;
-    private String length;
+    private String heel;
     private byte[] image;
 
    /* public coat(int id,String color,String pattern,String material,String style,String sleeves,String length,byte[] image ){
@@ -57,18 +56,13 @@ public class coat {
     public void setStyle(String style){
         this.style = style;
     }
-    public String getSleeves(){
-        return sleeves;
+    public String getHeel(){
+        return heel;
     }
-    public void setSleeves(String sleeves){
-        this.sleeves = sleeves;
-    }
-    public String getLength(){
-        return length;
-    }
-    public void setLength(String length){
-        this.length = length;
+    public void setHeel(String heel){
+        this.heel = heel;
     }
     public byte[] getImage(){ return image;}
     public void setImage(byte[] image){this.image = image;}
 }
+

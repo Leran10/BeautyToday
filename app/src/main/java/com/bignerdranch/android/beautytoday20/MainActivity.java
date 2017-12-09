@@ -14,6 +14,8 @@ public class MainActivity extends AppCompatActivity {
     Button mTrousersButton;
     Button mSkirtButton;
     Button mBootsButton;
+    Button mBagButton;
+    private Button mTodayButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 coatFragment coat1 = new coatFragment();
-                fragmentTransaction.add(R.id.fragment_container, coat1);
+                fragmentTransaction.replace(R.id.fragment_container, coat1);
                 fragmentTransaction.commit();
             }
         });
@@ -40,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dressFragment dress1 = new dressFragment();
-                fragmentTransaction.add(R.id.fragment_container,dress1);
+                fragmentTransaction.replace(R.id.fragment_container,dress1);
                 fragmentTransaction.commit();
             }
         });
@@ -52,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 TrousersFragment trousers1 = new TrousersFragment();
-                fragmentTransaction.add(R.id.fragment_container,trousers1);
+                fragmentTransaction.replace(R.id.fragment_container,trousers1);
                 fragmentTransaction.commit();
             }
         });
@@ -64,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 skirtFragment skirt1 = new skirtFragment();
-                fragmentTransaction.add(R.id.fragment_container,skirt1);
+                fragmentTransaction.replace(R.id.fragment_container,skirt1);
                 fragmentTransaction.commit();
             }
         });
@@ -76,9 +78,26 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 bootsFragment boots1 = new bootsFragment();
-                fragmentTransaction.add(R.id.fragment_container,boots1);
+                fragmentTransaction.replace(R.id.fragment_container,boots1);
                 fragmentTransaction.commit();
             }
+        });
+
+        mBagButton = (Button)findViewById(R.id.bag);
+        mBagButton.setOnClickListener(new View.OnClickListener() {
+            FragmentManager fragmentmanager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentmanager.beginTransaction();
+            @Override
+            public void onClick(View v) {
+                bootsFragment boots1 = new bootsFragment();
+                fragmentTransaction.replace(R.id.fragment_container,boots1);
+                fragmentTransaction.commit();
+            }
+        });
+
+        mTodayButton = (Button)findViewById(R.id.today);
+        mTodayButton.setOnClickListener(new View.OnClickListener() {
+            
         });
 
     }

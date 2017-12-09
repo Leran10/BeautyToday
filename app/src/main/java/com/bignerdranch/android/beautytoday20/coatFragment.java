@@ -4,6 +4,7 @@ package com.bignerdranch.android.beautytoday20;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -19,6 +20,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 import SQLite.DatabaseHelper;
@@ -54,8 +56,12 @@ public class coatFragment extends Fragment {
     private String style;
     private String sleeves;
     private String length;
+    private String img;
+
+
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
+
 
 
     public coatFragment() {
@@ -154,6 +160,7 @@ public class coatFragment extends Fragment {
         mCoatSleeves = (Spinner)rootview.findViewById(R.id.sleevesSpinner);
         mCoatLength = (Spinner)rootview.findViewById(R.id.lengthSpinner);
 
+
         mButtonCam.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
                 dispatchTakePictureIntent();
@@ -165,17 +172,27 @@ public class coatFragment extends Fragment {
 
                 public void onClick(View v) {
                     //Log.d("test","string1");
-                    color = mCoatColor.getSelectedItem().toString();
-                    pattern = mCoatPattern.getSelectedItem().toString();
-                    material = mCoatMaterial.getSelectedItem().toString();
-                    style = mCoatStyle.getSelectedItem().toString();
-                    sleeves = mCoatSleeves.getSelectedItem().toString();
-                    length = mCoatLength.getSelectedItem().toString();
+                    try {
 
-                    databasehelper = new DatabaseHelper(getActivity());
-                    c = new coat();
+                        color = ((ItemData)mCoatColor.getSelectedItem()).getText();
+                        pattern = ((ItemData)mCoatPattern.getSelectedItem()).getText();
+                        material = ((ItemData)mCoatMaterial.getSelectedItem()).getText();
+                        style = ((ItemData)mCoatStyle.getSelectedItem()).getText();
+                        sleeves = ((ItemData)mCoatSleeves.getSelectedItem()).getText();
+                        length = ((ItemData)mCoatLength.getSelectedItem()).getText();
+                        imageViewToByte(result);
+                        databasehelper = new DatabaseHelper(getActivity());
+                        c = new coat();
 
-                    PostDataToSQLite();
+                        PostDataToSQLite();
+
+                     Toast.makeText(getActivity(),"new coat has been sucessfully put into your wardrobe!",Toast.LENGTH_SHORT).show();
+
+                }catch(Exception e){
+                        e.printStackTrace();
+                    }
+
+
 
                     /*Intent viewIntent =
                             new Intent("android.intent.action.VIEW",
@@ -192,10 +209,21 @@ public class coatFragment extends Fragment {
         return rootview;
     }
 
-    private String selectCoat(){
+    private byte[] imageViewToByte(ImageView image) {
+        Bitmap bitmap = ((BitmapDrawable)image.getDrawable()).getBitmap();
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG,100,stream);
+        byte[] byteArray = stream.toByteArray();
+        return byteArray;
+
+    }
+
+   /* private String selectCoat(){
 
         return databasehelper.selectCoat();
-    }
+    }*/
+
+
     private void PostDataToSQLite() {
 
         c.setColor(color);
@@ -204,6 +232,7 @@ public class coatFragment extends Fragment {
         c.setStyle(style);
         c.setSleeves(sleeves);
         c.setLength(length);
+        c.setImage(imageViewToByte(result));
 
        databasehelper.addCoat(c);
 

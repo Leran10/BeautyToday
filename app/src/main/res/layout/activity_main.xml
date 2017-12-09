@@ -57,6 +57,14 @@
             android:layout_toRightOf ="@+id/boots"
             android:text="bag"/>
 
+        <Button
+            android:id="@+id/today"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/trousers"
+            android:layout_toRightOf ="@+id/bag"
+            android:text="today"/>
+
     </RelativeLayout>
 
     <RelativeLayout
