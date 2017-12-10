@@ -9,7 +9,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.bignerdranch.android.beautytoday20.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +31,12 @@ import model.trousers;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     Context context;
+    Boolean coat_status = false;
+    Boolean dress_status = false;
+    Boolean skirt_status = false;
+    Boolean trousers_status = false;
+    Boolean boots_status = false;
+    Boolean bag_status = false;
 
     //database version
     private static final int database_version = 1;
@@ -183,6 +192,77 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
 
     }
+
+    //select coat by id
+    public byte[] selectCoatById(int id){
+        coat_status = true;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT coat_img FROM coat WHERE ID="+id+"", null);
+        cursor.moveToFirst();
+
+        byte[] img = cursor.getBlob(cursor.getColumnIndex(coat_column_img));
+
+        return img;
+    }
+
+    //get dress by coat
+    public byte[] getDressByCoat(int id){
+        //select dress by coat id
+            SQLiteDatabase db = this.getWritableDatabase();
+            Cursor cursor = db.rawQuery("SELECT dress_img FROM dress WHERE ID="+id+"", null);
+            cursor.moveToFirst();
+
+            byte[] img = cursor.getBlob(cursor.getColumnIndex(dress_column_img));
+
+            return img;
+        }
+
+
+    //select dress by coat id
+    public byte[] getSkirtByCoat(int id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT skirt_img FROM skirt WHERE ID="+id+"", null);
+        cursor.moveToFirst();
+
+        byte[] img = cursor.getBlob(cursor.getColumnIndex(skirt_column_img));
+
+        return img;
+    }
+
+    //select trousers by coat id
+    public byte[] getTrouserByCoat(int id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT trousers_img FROM trousers WHERE ID="+id+"", null);
+        cursor.moveToFirst();
+
+        byte[] img = cursor.getBlob(cursor.getColumnIndex(trousers_column_img));
+
+        return img;
+    }
+
+    //select boots by coat id
+    public byte[] getBootsByCoat(int id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT boots_img FROM boots WHERE ID="+id+"", null);
+        cursor.moveToFirst();
+
+        byte[] img = cursor.getBlob(cursor.getColumnIndex(boots_column_img));
+
+        return img;
+    }
+
+    //select boots by coat id
+    public byte[] getBagByCoat(int id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT bag_img FROM bag WHERE ID="+id+"", null);
+        cursor.moveToFirst();
+
+        byte[] img = cursor.getBlob(cursor.getColumnIndex(bag_column_img));
+
+        return img;
+    }
+
 
     //add new dress
     public void addDress(dress d){

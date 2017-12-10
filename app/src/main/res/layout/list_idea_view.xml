@@ -1,17 +1,10 @@
-<android.support.v7.widget.CardView
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/card_view"
-    android:layout_width="80dp"
-    android:layout_height="wrap_content"
-    card_view:cardUseCompatPadding="true"
-    card_view:cardCornerRadius="8dp"
-    android:layout_marginBottom="16dp">
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation = "horizontal">
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_margin="8dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/coatph"
@@ -20,7 +13,7 @@
             android:adjustViewBounds="true"
             android:maxHeight="100dp"
             android:maxWidth="100dp"
-            android:padding="10dp"
+            android:padding="20dp"
             android:scaleType="centerCrop"
             android:src="@drawable/longcoat"/>
 
@@ -34,7 +27,7 @@
             android:adjustViewBounds="true"
             android:maxWidth="100dp"
             android:maxHeight="100dp"
-            android:padding = "10dp"/>
+            android:padding = "20dp"/>
 
         <ImageView
             android:id="@+id/skirtph"
@@ -46,46 +39,46 @@
             android:adjustViewBounds="true"
             android:maxWidth="100dp"
             android:maxHeight="100dp"
-            android:padding = "10dp"/>
+            android:padding = "20dp"/>
 
         <ImageView
             android:id="@+id/trousersph"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf = "@+id/skirtph"
+            android:layout_below = "@+id/coatph"
             android:src = "@drawable/longcoat"
             android:scaleType="centerCrop"
             android:adjustViewBounds="true"
             android:maxWidth="100dp"
             android:maxHeight="100dp"
-            android:padding = "10dp"/>
+            android:padding = "20dp"/>
 
         <ImageView
             android:id="@+id/bootsph"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below = "@+id/dressph"
             android:layout_toRightOf = "@+id/trousersph"
             android:src = "@drawable/longcoat"
             android:scaleType="centerCrop"
             android:adjustViewBounds="true"
             android:maxWidth="100dp"
             android:maxHeight="100dp"
-            android:padding = "10dp"/>
+            android:padding = "20dp"/>
 
         <ImageView
             android:id="@+id/bagph"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src = "@drawable/longcoat"
+            android:layout_below = "@+id/skirtph"
             android:layout_toRightOf = "@+id/bootsph"
             android:scaleType="centerCrop"
             android:adjustViewBounds="true"
             android:maxWidth="100dp"
             android:maxHeight="100dp"
-            android:padding = "10dp"/>
+            android:padding = "20dp"/>
 
     </RelativeLayout>
 
 
-
-</android.support.v7.widget.CardView>

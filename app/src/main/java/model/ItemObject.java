@@ -6,58 +6,72 @@ package model;
 
 public class ItemObject {
 
-    private int coatPh;
-    private int dressPh;
-    private int skirtPh;
-    private int trousersPh;
-    private int bootsPh;
-    private int bagPh;
+    private byte[] coatPh;
 
-    public int getCoatPh() {
+    private byte[] dressPh;
+    private byte[] skirtPh;
+    private byte[] trousersPh;
+    private byte[] bootsPh;
+    private byte[] bagPh;
+
+    public ItemObject(byte[] coatPh,byte[] dressPh,byte[] skirtPh,byte[] trousersPh,byte[] bootsPh,byte[] bagPh) {
+        this.coatPh = coatPh;
+        this.dressPh = dressPh;
+        this.skirtPh = skirtPh;
+        this.trousersPh = trousersPh;
+        this.bootsPh = bootsPh;
+        this.bagPh = bagPh;
+    }
+
+    public byte[] getCoatPh() {
         return coatPh;
     }
 
-    public void setCoatPh(int coatPh) {
+    public void setCoatPh(byte[] coatPh) {
         this.coatPh = coatPh;
     }
 
-    public int getSkirtPh() {
+    public byte[] getSkirtPh() {
         return skirtPh;
     }
 
-    public void setSkirtPh(int skirtPh) {
+    public void setSkirtPh(byte[] skirtPh) {
         this.skirtPh = skirtPh;
     }
 
-    public int getTrousersPh() {
+    public byte[] getTrousersPh() {
         return trousersPh;
     }
 
-    public void setTrousersPh(int trousersPh) {
+    public void setTrousersPh(byte[] trousersPh) {
         this.trousersPh = trousersPh;
     }
 
-    public int getDressPh() {
+    public byte[] getDressPh() {
         return dressPh;
     }
 
-    public void setDressPh(int dressPh) {
+    public void setDressPh(byte[] dressPh) {
         this.dressPh = dressPh;
     }
 
-    public int getBootsPh() {
+    public byte[] getBootsPh() {
         return bootsPh;
     }
 
-    public void setBootsPh(int bootsPh) {
+    public void setBootsPh(byte[] bootsPh) {
         this.bootsPh = bootsPh;
     }
 
-    public int getBagPh() {
+    public byte[] getBagPh() {
         return bagPh;
     }
 
-    public void setBagPh(int bagPh) {
+    public void setBagPh(byte[] bagPh) {
         this.bagPh = bagPh;
+    }
+
+    public int getPhotoById() {
+        return 0;
     }
 }
