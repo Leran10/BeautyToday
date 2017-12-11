@@ -25,6 +25,7 @@
             android:src = "@drawable/longcoat"
             android:scaleType="centerCrop"
             android:adjustViewBounds="true"
+            android:background = "#2ECC71"
             android:maxWidth="100dp"
             android:maxHeight="100dp"
             android:padding = "20dp"/>
@@ -78,6 +79,18 @@
             android:maxWidth="100dp"
             android:maxHeight="100dp"
             android:padding = "20dp"/>
+
+        <ImageButton
+            android:id="@+id/like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf = "@+id/bagph"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            android:maxWidth="50dp"
+            android:maxHeight="50dp"
+            android:gravity = "center"
+            android:src="@drawable/redlips"/>
 
     </RelativeLayout>
 

@@ -214,15 +214,6 @@ public class coatFragment extends Fragment {
                     e.printStackTrace();
                 }
 
-
-
-                    /*Intent viewIntent =
-                            new Intent("android.intent.action.VIEW",
-                                    Uri.parse("http://www.google.com/"));
-                    startActivity(viewIntent);*/
-                //selectCoat();
-
-
             }
         });
 
@@ -248,21 +239,7 @@ public class coatFragment extends Fragment {
 
     }
 
-/*
-    @Override
-    public void onActivityResult1(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK && data!= null) {
-            Uri uri = data.getData();
-            try {
-                InputStream inputStream = getContentResolver().openInputStream(uri);
-                Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-                result.setImageBitmap(bitmap);
-            }catch (FileNotFoundException e){
-                e.printStackTrace();
-            }
 
-        }
-    }*/
 
     private byte[] imageViewToByte(ImageView image) {
         Bitmap bitmap = ((BitmapDrawable) image.getDrawable()).getBitmap();
@@ -272,11 +249,6 @@ public class coatFragment extends Fragment {
         return byteArray;
 
     }
-
-   /* private String selectCoat(){
-
-        return databasehelper.selectCoat();
-    }*/
 
 
     private void PostDataToSQLite() {

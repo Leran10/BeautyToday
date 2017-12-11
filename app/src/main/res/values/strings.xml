@@ -25,6 +25,7 @@
     <string name="bag">bag</string>
     <string name="camera">camera</string>
     <string name="choose">choose</string>
+    <string name="like">like</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -2,6 +2,7 @@
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="500dp"
+              android:background="#A2D9CE"
               tools:context="com.bignerdranch.android.beautytoday20.coatFragment"
               android:orientation = "vertical">
 
@@ -41,9 +42,13 @@
         android:id = "@+id/img"
         android:layout_height = "wrap_content"
         android:layout_width="wrap_content"
-        android:minHeight = "100dp"
-        android:minWidth = "100dp"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        android:maxWidth="100dp"
+        android:maxHeight="100dp"
+        android:padding = "10dp"
         android:layout_gravity = "center"
+        android:layout_weight="0.60"
         />
 
     <Button
@@ -52,6 +57,13 @@
         android:layout_height="wrap_content"
         android:layout_gravity = "center"
         android:text="@string/camera"/>
+
+    <Button
+        android:id="@+id/choose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity = "center"
+        android:text="@string/choose"/>
 
     <Button
         android:id="@+id/confirm"

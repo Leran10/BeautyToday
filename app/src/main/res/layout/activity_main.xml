@@ -12,48 +12,96 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp">
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp">
 
-        <Button
+        <ImageButton
             android:id="@+id/coat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_toRightOf = "@+id/bagph"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            android:maxWidth="50dp"
+            android:maxHeight="50dp"
+            android:gravity = "center"
+            android:layout_margin = "3dp"
+            android:background = "#34495E"
+            android:src="@drawable/longsleeves"
             android:text="@string/coat"/>
 
-        <Button
+        <ImageButton
             android:id="@+id/dress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            android:maxWidth="50dp"
+            android:maxHeight="50dp"
+            android:gravity = "center"
+            android:layout_margin = "3dp"
+            android:background = "#E6B0AA"
+            android:src="@drawable/dressicon"
             android:layout_toRightOf="@+id/coat"
             android:text="@string/dress"/>
 
-        <Button
+        <ImageButton
             android:id="@+id/trousers"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            android:maxWidth="50dp"
+            android:maxHeight="50dp"
+            android:gravity = "center"
+            android:layout_margin = "3dp"
+            android:background = "#A2D9CE"
+            android:src="@drawable/trousersicon"
             android:layout_toRightOf="@+id/dress"
             android:text="@string/trousers"/>
 
-        <Button
+        <ImageButton
             android:id="@+id/skirt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            android:maxWidth="50dp"
+            android:maxHeight="50dp"
+            android:gravity = "center"
+            android:layout_margin = "3dp"
+            android:background = "#F9E79F"
+            android:src="@drawable/skirticon"
             android:layout_toRightOf="@+id/trousers"
             android:text="@string/skirt"/>
 
-        <Button
+        <ImageButton
             android:id="@+id/boots"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/coat"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            android:maxWidth="50dp"
+            android:maxHeight="50dp"
+            android:gravity = "center"
+            android:background = "#BFC9CA"
+            android:layout_margin = "3dp"
+            android:src="@drawable/shoeicon"
+            android:layout_toRightOf="@+id/skirt"
             android:text="@string/boots"/>
 
-        <Button
+        <ImageButton
             android:id="@+id/bag"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/dress"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            android:maxWidth="50dp"
+            android:maxHeight="50dp"
+            android:gravity = "center"
+            android:layout_margin = "3dp"
+            android:background = "#A9CCE3"
+            android:src="@drawable/bagicon"
             android:layout_toRightOf ="@+id/boots"
             android:text="bag"/>
 
@@ -61,17 +109,18 @@
             android:id="@+id/today"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/trousers"
-            android:layout_toRightOf ="@+id/bag"
-            android:text="today"/>
+            android:text="Today"
+            android:layout_below="@+id/bag"
+            android:layout_toEndOf="@+id/skirt"/>
 
     </RelativeLayout>
 
     <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="500dp"
+                    android:layout_height="480dp"
                     android:paddingLeft="16dp"
                     android:paddingRight="16dp"
+                    android:src = "@drawable/closet"
                     android:id = "@+id/fragment_container"/>
 
 

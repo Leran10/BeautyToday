@@ -4,6 +4,7 @@ package com.bignerdranch.android.beautytoday20;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -18,6 +19,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 import SQLite.DatabaseHelper;
@@ -52,6 +55,9 @@ public class bagFragment extends Fragment {
     private String style;
     private String size;
     private String img;
+    static final int PICK_PHOTO_FOR_AVATAR = 1;
+    private Button mButtonCho;
+    int status = 0;
 
 
 
@@ -116,28 +122,28 @@ public class bagFragment extends Fragment {
         sp2.setAdapter(adapter2);
 
         ArrayList<ItemData> list3 = new ArrayList<>();
-        list3.add(new ItemData("suit",R.drawable.white));
-        list3.add(new ItemData("bussiness casual",R.drawable.white));
-        list3.add(new ItemData("outdoor",R.drawable.white));
-        list3.add(new ItemData("ladies",R.drawable.white));
-        list3.add(new ItemData("punk",R.drawable.white));
-        list3.add(new ItemData("evening dress",R.drawable.white));
-        list3.add(new ItemData("saxy",R.drawable.white));
-        list3.add(new ItemData("mori girl",R.drawable.white));
-        list3.add(new ItemData("natual style",R.drawable.white));
+        list3.add(new ItemData("suit",R.drawable.images));
+        list3.add(new ItemData("bussiness casual",R.drawable.images));
+        list3.add(new ItemData("outdoor",R.drawable.images));
+        list3.add(new ItemData("ladies",R.drawable.images));
+        list3.add(new ItemData("punk",R.drawable.images));
+        list3.add(new ItemData("saxy",R.drawable.images));
+        list3.add(new ItemData("mori girl",R.drawable.images));
+        list3.add(new ItemData("natual style",R.drawable.images));
         Spinner sp3 = (Spinner)rootview.findViewById(R.id.styleSpinner);
         SpinnerAdapter adapter3 = new SpinnerAdapter(getActivity(),R.layout.spinner_layout, R.id.txt, list3);
         sp3.setAdapter(adapter3);
 
         ArrayList<ItemData> list5 = new ArrayList<>();
-        list5.add(new ItemData("long",R.drawable.longcoat));
-        list5.add(new ItemData("short",R.drawable.shortcoat));
+        list5.add(new ItemData("big",R.drawable.images));
+        list5.add(new ItemData("small",R.drawable.images));
         Spinner sp5 = (Spinner)rootview.findViewById(R.id.sizeSpinner);
         SpinnerAdapter adapter5 = new SpinnerAdapter(getActivity(),R.layout.spinner_layout, R.id.txt, list5);
         sp5.setAdapter(adapter5);
 
         mButtonCon = (Button)rootview.findViewById(R.id.confirm);
         mButtonCam = (Button)rootview.findViewById(R.id.camera);
+        mButtonCho = (Button)rootview.findViewById(R.id.choose);
         result = (ImageView)rootview.findViewById(R.id.img);
         mBagColor = (Spinner)rootview.findViewById(R.id.colorSpinner);
         mBagPattern = (Spinner)rootview.findViewById(R.id.patternSpinner);
@@ -150,6 +156,17 @@ public class bagFragment extends Fragment {
             public void onClick(View v) {
                 dispatchTakePictureIntent();
             }
+        });
+
+        mButtonCho.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+               /* ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                       REQUEST_CODE_GALLARY);*/
+                pickImage();
+
+            }
+
         });
 
 
@@ -176,16 +193,6 @@ public class bagFragment extends Fragment {
                     e.printStackTrace();
                 }
 
-
-
-                    /*Intent viewIntent =
-                            new Intent("android.intent.action.VIEW",
-                                    Uri.parse("http://www.google.com/"));
-                    startActivity(viewIntent);*/
-                //selectCoat();
-
-
-
             }
         });
 
@@ -202,10 +209,7 @@ public class bagFragment extends Fragment {
 
     }
 
-    /*private String selectDress(){
 
-        return databasehelper.selectDress();
-    }*/
 
 
     private void PostDataToSQLite() {
@@ -229,20 +233,50 @@ public class bagFragment extends Fragment {
     }
 
     private void dispatchTakePictureIntent() {
+        status = 1;
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getActivity().getPackageManager()) != null) {
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
         }
     }
 
+    public void pickImage() {
+        status = 2;
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.setType("image/*");
+        startActivityForResult(intent, PICK_PHOTO_FOR_AVATAR);
+    }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            Bundle extras = data.getExtras();
-            Bitmap imageBitmap = (Bitmap) extras.get("data");
-            result.setImageBitmap(imageBitmap);
+        super.onActivityResult(requestCode, resultCode, data);
+        if(status == 1) {
+            if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+                Bundle extras = data.getExtras();
+                Bitmap imageBitmap = (Bitmap) extras.get("data");
+                result.setImageBitmap(imageBitmap);
+            }
+        }
+        else if(status == 2) {
+            if (requestCode == PICK_PHOTO_FOR_AVATAR && resultCode == RESULT_OK) {
+                if (data == null) {
+                    //Display an error
+                    return;
+                } else {
+                    InputStream inputStream = null;
+                    try {
+                        inputStream = getActivity().getContentResolver().openInputStream(data.getData());
+                        Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+                        result.setImageBitmap(bitmap);
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+
+            }
         }
     }
 
-}
 
+}

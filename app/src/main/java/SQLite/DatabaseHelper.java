@@ -42,7 +42,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final int database_version = 1;
 
     //database name
-    private static final String database_name = "beauty2.0.db";
+    private static final String database_name = "beauty4.0.db";
 
     //user table name
     private static final String table_coat = "coat";
@@ -97,7 +97,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String boots_column_material = "boots_material";
     private static final String boots_column_style = "boots_style";
     private static final String boots_column_heel = "boots_heel";
-    private static final String boots_column_img = "trousers_img";
+    private static final String boots_column_img = "boots_img";
 
     //bags table columns name
     private static final String bag_column_id = "bag_id";
@@ -105,6 +105,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String bag_column_pattern = "bag_pattern";
     private static final String bag_column_material = "bag_material";
     private static final String bag_column_style = "bag_style";
+    private static final String bag_column_size = "bag_size";
     private static final String bag_column_img = "bag_img";
 
     //create coat table sql query
@@ -136,7 +137,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //create bag table sql query
     private static final String create_bag_table = "CREATE TABLE " + table_bag + "("+ bag_column_id + " INTEGER PRIMARY KEY,"+
             bag_column_color + " TEXT," + bag_column_pattern + " TEXT," + bag_column_material + " TEXT," + bag_column_style + " TEXT, " +
-            " TEXT, " +  bag_column_img  + " BYTE " + ")";
+            bag_column_size + " TEXT, " +  bag_column_img  + " BYTE " + ")";
 
 
 
@@ -198,8 +199,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         coat_status = true;
 
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("SELECT coat_img FROM coat WHERE ID="+id+"", null);
-        cursor.moveToFirst();
+        Cursor cursor = db.rawQuery("SELECT coat_img FROM coat WHERE coat_id ="+id, null);
+        cursor.moveToNext();
 
         byte[] img = cursor.getBlob(cursor.getColumnIndex(coat_column_img));
 
@@ -210,8 +211,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public byte[] getDressByCoat(int id){
         //select dress by coat id
             SQLiteDatabase db = this.getWritableDatabase();
-            Cursor cursor = db.rawQuery("SELECT dress_img FROM dress WHERE ID="+id+"", null);
-            cursor.moveToFirst();
+            Cursor cursor = db.rawQuery("SELECT dress_img FROM dress WHERE dress_id="+id, null);
+            cursor.moveToNext();
 
             byte[] img = cursor.getBlob(cursor.getColumnIndex(dress_column_img));
 
@@ -222,8 +223,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //select dress by coat id
     public byte[] getSkirtByCoat(int id){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("SELECT skirt_img FROM skirt WHERE ID="+id+"", null);
-        cursor.moveToFirst();
+        Cursor cursor = db.rawQuery("SELECT skirt_img FROM skirt WHERE skirt_id ="+id, null);
+        cursor.moveToNext();
 
         byte[] img = cursor.getBlob(cursor.getColumnIndex(skirt_column_img));
 
@@ -233,8 +234,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //select trousers by coat id
     public byte[] getTrouserByCoat(int id){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("SELECT trousers_img FROM trousers WHERE ID="+id+"", null);
-        cursor.moveToFirst();
+        Cursor cursor = db.rawQuery("SELECT trousers_img FROM trousers WHERE trousers_id="+id, null);
+        cursor.moveToNext();
 
         byte[] img = cursor.getBlob(cursor.getColumnIndex(trousers_column_img));
 
@@ -244,8 +245,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //select boots by coat id
     public byte[] getBootsByCoat(int id){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("SELECT boots_img FROM boots WHERE ID="+id+"", null);
-        cursor.moveToFirst();
+        Cursor cursor = db.rawQuery("SELECT boots_img FROM boots WHERE boots_id="+id, null);
+        cursor.moveToNext();
 
         byte[] img = cursor.getBlob(cursor.getColumnIndex(boots_column_img));
 
@@ -255,7 +256,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //select boots by coat id
     public byte[] getBagByCoat(int id){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("SELECT bag_img FROM bag WHERE ID="+id+"", null);
+        Cursor cursor = db.rawQuery("SELECT bag_img FROM bag WHERE bag_id="+id, null);
         cursor.moveToFirst();
 
         byte[] img = cursor.getBlob(cursor.getColumnIndex(bag_column_img));
@@ -322,6 +323,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(boots_column_pattern,b.getPattern());
         values.put(boots_column_material,b.getMaterial());
         values.put(boots_column_style,b.getStyle());
+        values.put(boots_column_heel,b.getHeel());
         values.put(boots_column_img,b.getImage());
         db.insert(table_boots,null,values);
         db.close();
@@ -337,6 +339,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(bag_column_pattern,a.getPattern());
         values.put(bag_column_material,a.getMaterial());
         values.put(bag_column_style,a.getStyle());
+        values.put(bag_column_size,a.getSize());
         values.put(bag_column_img,a.getImage());
         db.insert(table_bag,null,values);
         db.close();
