@@ -2,7 +2,7 @@
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="500dp"
-              android:background="#F9E79F"
+              android:background="#E2BCFF"
               tools:context="com.bignerdranch.android.beautytoday20.coatFragment"
               android:orientation = "vertical"
               android:weightSum="1">
@@ -41,34 +41,40 @@
 
     <ImageView
         android:id = "@+id/img"
-        android:layout_height = "wrap_content"
-        android:layout_width="140dp"
+        android:layout_height = "100dp"
+        android:layout_width="100dp"
         android:scaleType="fitCenter"
         android:adjustViewBounds="true"
+        android:background="@drawable/skirtborder"
         android:maxWidth="100dp"
         android:maxHeight="100dp"
         android:padding = "10dp"
         android:layout_gravity = "center"
         android:layout_weight="0.60"/>
 
-    <Button
+    <ImageButton
         android:id="@+id/camera"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:background="@drawable/skirtcamera"
         android:layout_gravity = "center"
         android:text="@string/camera"/>
 
-    <Button
+    <ImageButton
         android:id="@+id/choose"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:layout_margin = "5dp"
+        android:background="@drawable/skirtgallary"
         android:layout_gravity = "center"
         android:text="@string/choose"/>
 
-    <Button
+    <ImageButton
         android:id="@+id/confirm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/skirtok"
+        android:layout_margin = "5dp"
         android:layout_gravity = "right"
         android:text="@string/confirm"/>
 

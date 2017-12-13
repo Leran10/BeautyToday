@@ -5,13 +5,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation = "vertical"
+    android:orientation = "horizontal"
     tools:context="com.bignerdranch.android.beautytoday20.MainActivity">
 
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:layout_margin = "5dp">
@@ -20,13 +20,14 @@
             android:id="@+id/coat"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_toRightOf = "@+id/bagph"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
             android:scaleType="centerCrop"
             android:adjustViewBounds="true"
             android:maxWidth="50dp"
             android:maxHeight="50dp"
             android:gravity = "center"
-            android:layout_margin = "5dp"
+            android:layout_marginBottom = "10dp"
             android:background = "#BCD9FF"
             android:src="@drawable/coat"
             android:text="@string/coat"/>
@@ -40,10 +41,10 @@
             android:maxWidth="50dp"
             android:maxHeight="50dp"
             android:gravity = "center"
-            android:layout_margin = "5dp"
+            android:layout_marginBottom = "10dp"
             android:background = "#FFBCD9"
             android:src="@drawable/dress"
-            android:layout_toRightOf="@+id/coat"
+            android:layout_below="@+id/coat"
             android:text="@string/dress"/>
 
         <ImageButton
@@ -55,10 +56,10 @@
             android:maxWidth="50dp"
             android:maxHeight="50dp"
             android:gravity = "center"
-            android:layout_margin = "5dp"
+            android:layout_marginBottom = "10dp"
             android:background = "#FAFFBC"
             android:src="@drawable/trousersicon"
-            android:layout_toRightOf="@+id/dress"
+            android:layout_below="@+id/dress"
             android:text="@string/trousers"/>
 
         <ImageButton
@@ -70,11 +71,13 @@
             android:maxWidth="50dp"
             android:maxHeight="50dp"
             android:gravity = "center"
-            android:layout_margin = "5dp"
             android:background = "#E2BCFF"
             android:src="@drawable/skirt"
             android:layout_toRightOf="@+id/trousers"
-            android:text="@string/skirt"/>
+            android:layout_below = "@+id/bag"
+            android:text="@string/skirt"
+            android:layout_marginBottom = "10dp"
+           />
 
         <ImageButton
             android:id="@+id/boots"
@@ -86,9 +89,9 @@
             android:maxHeight="50dp"
             android:gravity = "center"
             android:background = "#D9FFBC"
-            android:layout_margin = "5dp"
+            android:layout_marginBottom = "10dp"
             android:src="@drawable/highheel"
-            android:layout_toRightOf="@+id/skirt"
+            android:layout_toRightOf="@+id/coat"
             android:text="@string/boots"/>
 
         <ImageButton
@@ -100,10 +103,11 @@
             android:maxWidth="50dp"
             android:maxHeight="50dp"
             android:gravity = "center"
-            android:layout_margin = "5dp"
+            android:layout_marginBottom = "10dp"
             android:background = "#EE6363"
             android:src="@drawable/bag"
-            android:layout_toRightOf ="@+id/boots"
+            android:layout_below ="@+id/boots"
+            android:layout_toRightOf ="@+id/dress"
             android:text="bag"/>
 
         <Button
@@ -112,22 +116,33 @@
             android:layout_height="40dp"
             android:text="Today"
             android:background = "@drawable/todaybackground"
-
             android:layout_gravity = "center"
-            android:layout_below = "@+id/trousers"
-            android:layout_marginTop="10dp"
+            android:layout_below = "@+id/skirt"
+            android:layout_marginTop="30dp"
             android:layout_centerHorizontal="true"/>
 
     </RelativeLayout>
 
-    <RelativeLayout
+  <!--  <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:layout_margin = "5dp">-->
+
+        <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="480dp"
+                    android:layout_height="500dp"
                     android:layout_margin = "5dp"
                     android:paddingLeft="16dp"
                     android:paddingRight="16dp"
                     android:src = "@drawable/closet"
-                    android:id = "@+id/fragment_container"/>
+                    android:id = "@+id/fragment_container"
+                    android:orientation = "horizontal"/>
+
+
+   <!-- </LinearLayout>-->
 
 
 </LinearLayout>

@@ -260,6 +260,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.moveToFirst();
 
         byte[] img = cursor.getBlob(cursor.getColumnIndex(bag_column_img));
+        //An SQL BLOB is a built-in type that stores a Binary Large Object as a column value in a row of a database table
 
         return img;
     }

@@ -2,7 +2,7 @@
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="500dp"
-              android:background="#A9CCE3"
+              android:background = "#EE6363"
               tools:context="com.bignerdranch.android.beautytoday20.coatFragment"
               android:orientation = "vertical">
 
@@ -40,36 +40,41 @@
 
     <ImageView
         android:id = "@+id/img"
-        android:layout_height = "wrap_content"
-        android:layout_width="wrap_content"
+        android:layout_height = "100dp"
+        android:layout_width="100dp"
         android:scaleType="fitCenter"
         android:adjustViewBounds="true"
         android:maxWidth="100dp"
         android:maxHeight="100dp"
+        android:background="@drawable/bagborder"
         android:padding = "10dp"
-
         android:layout_gravity = "center"
         android:layout_weight="0.60"
         />
 
-    <Button
+    <ImageButton
         android:id="@+id/camera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background = "@drawable/bagcamera"
         android:layout_gravity = "center"
         android:text="@string/camera"/>
 
-    <Button
+    <ImageButton
         android:id="@+id/choose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background = "@drawable/baggallary"
+        android:layout_margin = "5dp"
         android:layout_gravity = "center"
         android:text="@string/choose"/>
 
-    <Button
+    <ImageButton
         android:id="@+id/confirm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background = "@drawable/bagok"
+        android:layout_margin = "5dp"
         android:layout_gravity = "right"
         android:text="@string/confirm"/>
 

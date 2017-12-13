@@ -25,7 +25,6 @@
             android:src = "@drawable/longcoat"
             android:scaleType="centerCrop"
             android:adjustViewBounds="true"
-            android:background = "#2ECC71"
             android:maxWidth="100dp"
             android:maxHeight="100dp"
             android:padding = "20dp"/>
@@ -89,8 +88,8 @@
             android:adjustViewBounds="true"
             android:maxWidth="50dp"
             android:maxHeight="50dp"
-            android:gravity = "center"
-            android:src="@drawable/redlips"/>
+            android:layout_marginLeft = "15dp"
+            android:background="@drawable/redlips"/>
 
     </RelativeLayout>
 

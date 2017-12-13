@@ -38,7 +38,7 @@ public class today extends AppCompatActivity {
         recyclerView.setAdapter(Adapter);
 
         //get 10 lists from datadase
-        for (int i = 1; i < 5; i++){
+        for (int i = 1; i < 6; i++){
 
             itemList.add(new ItemObject(databasehelper.selectCoatById(i),databasehelper.getDressByCoat(i),databasehelper.getSkirtByCoat(i),
                     databasehelper.getTrouserByCoat(i),databasehelper.getBootsByCoat(i),databasehelper.getBagByCoat(i)));

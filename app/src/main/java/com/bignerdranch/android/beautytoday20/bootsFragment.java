@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -40,8 +41,8 @@ public class bootsFragment extends Fragment {
 
 
     private Context context;
-    private Button mButtonCon;
-    private Button mButtonCam;
+    private ImageButton mButtonCon;
+    private ImageButton mButtonCam;
     private ImageView result;
     private Spinner mbootsColor;
     private Spinner mbootsPattern;
@@ -58,7 +59,7 @@ public class bootsFragment extends Fragment {
     private String img;
     int status = 0;
     static final int PICK_PHOTO_FOR_AVATAR = 1;
-    private Button mButtonCho;
+    private ImageButton mButtonCho;
 
 
 
@@ -142,9 +143,9 @@ public class bootsFragment extends Fragment {
         SpinnerAdapter adapter5 = new SpinnerAdapter(getActivity(),R.layout.spinner_layout, R.id.txt, list5);
         sp5.setAdapter(adapter5);
 
-        mButtonCon = (Button)rootview.findViewById(R.id.confirm);
-        mButtonCam = (Button)rootview.findViewById(R.id.camera);
-        mButtonCho = (Button)rootview.findViewById(R.id.choose);
+        mButtonCon = (ImageButton)rootview.findViewById(R.id.confirm);
+        mButtonCam = (ImageButton)rootview.findViewById(R.id.camera);
+        mButtonCho = (ImageButton)rootview.findViewById(R.id.choose);
         result = (ImageView)rootview.findViewById(R.id.img);
         mbootsColor = (Spinner)rootview.findViewById(R.id.colorSpinner);
         mbootsPattern = (Spinner)rootview.findViewById(R.id.patternSpinner);
