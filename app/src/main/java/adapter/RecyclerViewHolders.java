@@ -1,8 +1,5 @@
 package adapter;
 
-/**
- * Created by qingzhi on 12/10/2017.
- */
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
